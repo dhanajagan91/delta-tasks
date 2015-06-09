@@ -1,0 +1,55 @@
+<html>
+<body>
+<svg id="main" width="1000" height="400">
+  <line x1="0"  y1="0" x2="0"   y2="350" style="stroke:#006600;"/>
+    <line x1="0" y1="350" x2="500" y2="350" style="stroke:#006600;"/>
+</svg>
+<input id="e" type="text">
+<input  type="button" value="Change Dimensions"
+            onclick="changeDimensions()"/>
+<input type="button" value="hacker mode" onclick="ascend()"/>
+
+
+<script>   var c=0; var fruits=[],j=0; 
+    function changeDimensions() 
+     {
+      var d=document.getElementById("e").value
+      var b = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      b.setAttribute("x",c);
+      b.setAttribute("y",350-d);
+      b.setAttribute("width",10);
+      b.setAttribute("height",d);
+      b.setAttribute("fill",'#95B3D7');
+      b.setAttribute("id",j.toString());
+      fruits[j]=j;
+      var svg=document.getElementById('main');
+      svg.appendChild(b);  
+      c+=20;      
+      j=j+1;
+  
+     }
+
+function ascend()
+{ 
+  var i=0,k=0,a,w,t,y,f,g;
+  for(i=0;i<j;i++)
+  {for(k=i+1;k<j;k++)
+     {  
+         f=fruits[i];
+         g=fruits[k];
+         
+       a=parseInt(document.getElementById(f).getAttribute("height"));
+      w=parseInt(document.getElementById(g).getAttribute("height"));
+    
+       if(a>w)
+       { t=parseInt(document.getElementById(f).getAttribute("x"));
+       y=parseInt(document.getElementById(g).getAttribute("x"));
+        document.getElementById(f).setAttribute("x",y);
+       document.getElementById(g).setAttribute("x",t);
+       }
+     }
+  }
+}
+</script>
+</body>
+</html>

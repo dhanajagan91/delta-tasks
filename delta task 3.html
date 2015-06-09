@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+<svg id="main"  width="5000" height="400">
+  <rect id="me" x="0" y="0" width="400" height="100" 
+  style="fill:rgb(0,0,255);stroke-width:10;stroke:rgb(0,0,0)" />
+Sorry, your browser does not support inline SVG.
+</svg><br>
+<input type="text" size="40" onkeydown="myFunction(event)">
+<p>use arrow keys inside the input box to manipulate the position of the svg element</p>
+
+<p id="demo"></p>
+
+<script> 
+
+function myFunction(event) 
+{ var x = event.charCode || event.keyCode;  // Get the Unicode value
+   if(x==39)
+ {var s=parseInt(document.getElementById("me").getAttribute("x"));
+   s+=50;
+localStorage.setItem("lastx",s.toString());
+document.getElementById("me").setAttribute("x",s.toString());
+ }
+    if(x==40)
+ {var s=parseInt(document.getElementById("me").getAttribute("y"));
+   s+=50;
+localStorage.setItem("lasty",s.toString());
+document.getElementById("me").setAttribute("y",s.toString());
+   
+ }
+   if(x==37)
+ {var s=parseInt(document.getElementById("me").getAttribute("x"));
+   s-=50;
+localStorage.setItem("lastx",s.toString());
+document.getElementById("me").setAttribute("x",s.toString());
+ }
+   if(x==38)
+ {var s=parseInt(document.getElementById("me").getAttribute("y"));
+   s-=50;
+localStorage.setItem("lasty",s.toString());
+document.getElementById("me").setAttribute("y",s.toString());
+  }
+
+
+}
+
+
+window.onload=function(){
+	a=localStorage.getItem("lastx"),
+	y=localStorage.getItem("lasty");
+	
+document.getElementById("me").setAttribute("y",y.toString());
+document.getElementById("me").setAttribute("x",a.toString());
+
+	
+}
+</script>
+</body>
+</html>
